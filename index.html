@@ -4,8 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mariam Hegab</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
 </head>
 <body>
-  <h1>Hello, I'm Mariam.</h1>
-  <p>My portfolio is coming soon.</p>
+  <div class="wipe"></div>
+  <nav class="nav" aria-label="Main">
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <img class="logo" src="assets/portweblogo.svg" alt="Mariam Hegab">
+
+  <p class="blurb" id="about">I am a designer and creative technologist who designs and builds digital and physical products.</p>
+
+  <aside class="strip" id="work" aria-label="Selected work">
+    <div class="track">
+      <!-- swap these for your real work images; the JS duplicates them for a seamless loop -->
+      <img src="assets/work/work-1.jpg" alt="Project 1">
+      <img src="assets/work/work-2.jpg" alt="Project 2">
+      <img src="assets/work/work-3.jpg" alt="Project 3">
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+  <script src="fx.js"></script>
 </body>
+</html>
