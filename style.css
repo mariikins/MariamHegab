@@ -82,3 +82,6 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
 .svc.intro{width:min(84rem,94vw)}
 .svc.intro ol{grid-template-columns:repeat(3,auto);justify-content:center;--g:clamp(5rem,12vw,13rem);column-gap:var(--g)}
 .svc.intro ol>li:not(:last-child)::after{right:calc(var(--g) / -2 - .55rem)}
+
+/* no strokes on the landing photo bar */
+.strip,.track,.track img{border:0!important;outline:0!important;box-shadow:none!important}
