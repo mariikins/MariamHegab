@@ -85,3 +85,5 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
 
 /* no strokes on the landing photo bar */
 .strip,.track,.track img{border:0!important;outline:0!important;box-shadow:none!important}
+
+.strip,.track,.track img{border:0!important;outline:0!important;box-shadow:none!important}
