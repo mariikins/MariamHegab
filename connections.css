@@ -71,9 +71,10 @@
 #sysmap.hov line:not(.lit){opacity:.1}
 #sysmap line.lit{stroke:#ff7eb6;stroke-width:2}
 
+@media (max-width:1100px){.rmwrap{grid-template-columns:1fr}.panel{position:static}}
 @media (max-width:900px){
-  .rmwrap{grid-template-columns:1fr}.rm{grid-template-columns:1fr}#links{display:none}
-  .panel{position:sticky;top:auto;bottom:.8rem;max-height:46vh;overflow:auto;z-index:3}
+  .rm{grid-template-columns:1fr}#links{display:none}
+  .panel{position:sticky;top:auto;bottom:.8rem;max-height:34vh;overflow:auto;z-index:3}
 }
 @media (max-width:700px){
   .game{padding:1rem}.wall{grid-template-columns:repeat(2,1fr)}

@@ -102,3 +102,6 @@ body.page::before{content:"";position:fixed;top:0;left:0;right:0;height:5rem;bac
 .artist .desc{margin:2rem 0 0;max-width:30rem}
 @media (max-width:800px){.artist{grid-template-columns:1fr}}
 .artist img{mix-blend-mode:multiply}
+
+/* About flow arrows: on phones they sit under each stage, not off the right edge */
+@media (max-width:700px){.svc.big ol>li:not(:last-child)::after{right:auto;top:auto;left:0;bottom:-2.1rem}}
