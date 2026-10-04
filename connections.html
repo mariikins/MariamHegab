@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connections, National Gallery of Art / Mariam Hegab</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="pages.css"><link rel="stylesheet" href="connections.css"></head>
+<body class="page work">
+<div class="wipe"></div>
+<nav class="nav" aria-label="Main"><a href="about.html">About</a><a href="work.html" aria-current="page">Work</a><a href="contact.html">Contact</a></nav>
+<a class="home" href="index.html" aria-label="Home"><img src="assets/portweblogo.svg" alt="Mariam Hegab"></a>
+<main>
+<a class="back" href="work.html">&larr; Work</a>
+<h1 class="ptitle sm" data-split>Connections, National Gallery of Art</h1>
+<p class="sub">Systems &amp; Interaction &middot; Interactive gallery experience &middot; Aug &ndash; Dec 2025</p>
+<dl class="meta">
+  <div><dt>Partner</dt><dd>National Gallery of Art</dd></div>
+  <div><dt>Role</dt><dd>Research, interaction design, prototype</dd></div>
+  <div><dt>Timeline</dt><dd>4 months, course project</dd></div>
+  <div><dt>Tools</dt><dd>Figma, p5.js, HTML/CSS/JS</dd></div>
+</dl>
+<p class="desc">With my team, I partnered with the National Gallery of Art to explore how museum experiences can center complexity and multiple perspectives over singular narratives. We used human-centered methods, including ethnographic observation, stakeholder interviews and participatory research, to identify systemic challenges and opportunities. We synthesized the qualitative data through affinity mapping and systems mapping to reveal relationships and leverage points, then developed contextually grounded design recommendations supported by iterative prototyping and user testing.</p>
+
+<section class="blk">
+  <h2 class="h2s" data-split>Play it</h2>
+  <p class="note">The prototype is a connections-style game set in the gallery. Study the four paintings, then sort the cards.</p>
+  <div class="game">
+    
+    <div class="gtop"><span>NATIONAL GALLERY OF ART</span><span>Back and Forth</span></div>
+    <h3 class="gtitle">Gallery Connections</h3>
+    <div class="gbar"><span>Score <b id="score">0</b></span><span>Attempts <b id="att">0</b></span><button id="reset" type="button">Reset</button></div>
+    <div class="wall"><figure><img src="assets/connections/venus.jpg" alt="Venus with a Mirror"><figcaption>Venus with a Mirror</figcaption></figure><figure><img src="assets/connections/afro-died.jpg" alt="afro.died, T."><figcaption>afro.died, T.</figcaption></figure><figure><img src="assets/connections/boy-red-waistcoat.jpg" alt="Boy in a Red Waistcoat"><figcaption>Boy in a Red Waistcoat</figcaption></figure><figure><img src="assets/connections/ranuccio.jpg" alt="Ranuccio Farnese"><figcaption>Ranuccio Farnese</figcaption></figure></div>
+    <div id="solved"></div><div id="grid"></div>
+    <p id="msg" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="blk">
+  <h2 class="h2s" data-split>Research map</h2>
+  <p class="hmw">How might we create interactivity and play at the NGA that resonates across age groups, making learning and engagement meaningful for both children and adults?</p>
+  <p class="note">Hover or tap anything to trace how it fed into the rest of the process. Click to pin it. Pulled from the team&rsquo;s research board.</p>
+  <div class="tl" id="tl"></div>
+  <div class="rmwrap"><div class="rm" id="rm"><svg id="links" aria-hidden="true"></svg></div><aside class="panel" id="panel" aria-live="polite"></aside></div>
+</section>
+
+<section class="blk">
+  <h2 class="h2s" data-split>Systems map</h2>
+  <p class="note">Hover or tap a node to see what it connects to. Redrawn from the team&rsquo;s systems map.</p>
+  <svg id="sysmap" viewBox="1495 430 740 600" role="img" aria-label="Systems map"></svg>
+</section>
+
+<a class="back" href="work.html">&larr; Back to work</a>
+</main>
+<footer class="foot">Designed and built by Mariam Hegab.</footer>
+<script src="fx.js"></script><script src="connections.js"></script>
+</body></html>

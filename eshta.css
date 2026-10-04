@@ -1,0 +1,36 @@
+.eshta{--red:#ec0024;--cream:#fffaf3;background:var(--cream)}
+.eshta main{padding:0;min-height:0}
+.pad{padding:7rem 2.75rem}
+.hero{position:relative;height:100vh;min-height:34rem;overflow:hidden}
+.cone{position:absolute;right:-4vw;top:-6vh;height:120vh;z-index:1;will-change:transform}
+.wm{position:absolute;left:4vw;top:32vh;width:84vw;z-index:2}
+.cherry{position:absolute;left:60vw;top:6vh;width:clamp(3.5rem,7vw,7rem);z-index:3;touch-action:none;user-select:none}
+.tag{position:absolute;left:2.75rem;bottom:2rem;z-index:3;color:var(--red);font-size:.95rem}
+.intro{display:grid;grid-template-columns:1.7fr 1fr;gap:4rem;align-items:start}
+.eshta .lead{color:var(--red);font-size:clamp(1.8rem,4vw,3.8rem);max-width:none}
+.facts div{margin-bottom:1.4rem}.facts dt{font-size:.8rem;margin-bottom:.3rem;color:var(--red)}.facts dd{font-weight:500}
+.h2{font-size:clamp(3rem,10vw,10rem);line-height:.9;letter-spacing:-.05em;color:var(--red)}
+.note{max-width:26rem;margin-top:2rem;font-weight:500;line-height:1.4}
+.posters{background:#fff}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:4rem;align-items:start}
+.pair figcaption{margin-top:1rem;font-size:.85rem}
+.tilt{width:100%;display:block;box-shadow:0 30px 60px rgba(0,0,0,.18);transition:transform .25s ease-out;will-change:transform}
+.sticker{position:fixed;z-index:4;pointer-events:none;opacity:0;animation:pop .5s var(--ease) forwards}
+@keyframes pop{from{opacity:0;scale:.2}to{opacity:1;scale:1}}
+.bleed{margin:0}.bleed figcaption{padding:.7rem 2.75rem 2rem}
+.bleed img{width:100%}
+.palette{padding-top:6rem}.palette .h2{padding-top:0;padding-bottom:3rem}
+.sw{display:flex;height:70vh;min-height:24rem}
+.sw button{flex:1;border:0;background:var(--c);color:var(--t);font:inherit;text-align:left;padding:1.2rem;display:flex;flex-direction:column;justify-content:flex-end;gap:.3rem;transition:flex .6s var(--ease)}
+.sw button:hover,.sw button:focus-visible{flex:3}
+.sw b{font-size:1.2rem;letter-spacing:-.02em}.sw span{font-weight:500;font-size:.9rem}
+.palette .note{max-width:none;padding-top:1rem;padding-bottom:0;margin:0}
+.end{padding-top:4rem}.back{font-size:1.2rem}
+@media (max-width:700px){
+  .pad{padding:4rem 1.25rem}.tag{left:1.25rem}
+  .intro,.pair{grid-template-columns:1fr}
+  .wm{top:38vh;width:92vw}.cone{height:90vh;right:-20vw}
+  .sw{flex-direction:column;height:auto}.sw button{min-height:5rem}.sw button:hover{flex:1}
+  .bleed figcaption{padding:.7rem 1.25rem 2rem}
+}
+body.eshta{--bg:var(--cream)}

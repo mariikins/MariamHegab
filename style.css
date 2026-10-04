@@ -20,33 +20,34 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
 
 .logo{
   position:fixed;left:2vw;top:46vh;width:72vw;height:auto;z-index:2;
-  transition:left var(--dur) var(--ease),top var(--dur) var(--ease);
+  transition:left var(--dur) var(--ease),top var(--dur) var(--ease),width var(--dur) var(--ease);
 }
 .strip{
   position:fixed;top:0;right:0;bottom:0;width:24vw;z-index:3;overflow:hidden;
   background:#fff;border-left:1px solid var(--ink);
   transition:transform var(--dur) var(--ease);
 }
-.track{animation:scroll 24s linear infinite}
+.track{animation:scroll 32s linear infinite}
 .track img{display:block;width:100%;height:33.34vh;object-fit:cover;border-bottom:1px solid var(--ink);background:#f2f2f2}
 @keyframes scroll{to{transform:translateY(-50%)}}
 
 .blurb{
-  position:fixed;left:50%;top:70vh;width:min(46rem,86vw);text-align:center;z-index:2;
+  position:fixed;left:50%;top:46vh;width:min(46rem,86vw);text-align:center;z-index:2;
   font-size:clamp(1.15rem,2vw,1.75rem);line-height:1.25;font-weight:500;
   opacity:0;transform:translate(-50%,12px);pointer-events:none;
   transition:opacity 1s ease,transform 1s ease;
 }
 
 /* entered state */
-.entered .logo{left:14vw;top:12vh}
+.entered .logo{left:calc(50vw - min(56vw,80vh) / 2);top:9vh;width:min(56vw,80vh)}
 .entered .strip{transform:translateX(100%)}
 .entered .blurb{opacity:1;transform:translate(-50%,0);transition-delay:.9s}
 
 @media (max-width:700px){
   .nav{left:1.25rem;gap:1.5rem;top:1.25rem}
   .logo{width:140vw;left:-10vw}
-  .entered .logo{left:-20vw;top:18vh}
+  .entered .logo{left:-20vw;top:18vh;width:140vw}
+  .svc.intro{display:none}
   .strip{width:34vw}
   .blurb{top:64vh}
 }
@@ -55,3 +56,29 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
   .track{animation:none}
   .blurb{transition-delay:0s}
 }
+
+/* services */
+.svc ol{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.svc h3{font-size:1rem;letter-spacing:-.02em;margin-bottom:.6rem}
+.svc h3 span{margin-right:.4em}
+.svc ul{list-style:none}
+.svc ul li{font-size:.85rem;font-weight:500;line-height:1.55;transition:color .2s,transform .3s var(--ease)}
+.svc ul li:hover{color:var(--pink);transform:translateX(6px)}
+.svc.intro{position:fixed;left:50%;top:62vh;width:min(60rem,88vw);transform:translate(-50%,12px);z-index:2;opacity:0;pointer-events:none;transition:opacity 1s ease,transform 1s ease}
+.svc-tag{font-weight:700;font-size:1.1rem;letter-spacing:-.02em;margin-bottom:1.4rem;text-align:center}
+.entered .svc.intro{opacity:1;pointer-events:auto;transform:translate(-50%,0);transition-delay:1.4s}
+@media (prefers-reduced-motion:reduce){.svc.intro{transition-delay:0s}}
+
+/* flow arrows between the three stages */
+.svc ol>li{position:relative}
+.svc ol>li:not(:last-child)::after{content:"\2192";position:absolute;top:0;right:-1.6rem;font-weight:700;font-size:1.1rem;line-height:1;animation:nudge 1.8s var(--ease) infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+@media (max-width:700px){
+  .svc ol>li:not(:last-child)::after{content:"\2193";top:auto;right:auto;left:0;bottom:-1.8rem;animation:none}
+}
+@media (prefers-reduced-motion:reduce){.svc ol>li::after{animation:none}}
+
+/* center the three-stage flow as one block */
+.svc.intro{width:min(84rem,94vw)}
+.svc.intro ol{grid-template-columns:repeat(3,auto);justify-content:center;--g:clamp(5rem,12vw,13rem);column-gap:var(--g)}
+.svc.intro ol>li:not(:last-child)::after{right:calc(var(--g) / -2 - .55rem)}

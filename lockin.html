@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lock In / Mariam Hegab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="pages.css"><link rel="stylesheet" href="lockin.css"></head>
+<body class="page work">
+<div class="wipe"></div>
+<nav class="nav" aria-label="Main"><a href="about.html">About</a><a href="work.html" aria-current="page">Work</a><a href="contact.html">Contact</a></nav>
+<a class="home" href="index.html" aria-label="Home"><img src="assets/portweblogo.svg" alt="Mariam Hegab"></a>
+<main>
+<a class="back" href="work.html">&larr; Work</a>
+<h1 class="ptitle" data-split>Lock In</h1>
+<p class="sub">Systems &amp; Interaction &middot; Productivity app &middot; Mobile prototype</p>
+<dl class="meta">
+  <div><dt>Audience</dt><dd>Younger users</dd></div>
+  <div><dt>Focus</dt><dd>Timer, tasks, calendar, notes</dd></div>
+  <div><dt>Role</dt><dd>Product and interaction design</dd></div>
+  <div><dt>Tools</dt><dd>Figma, HTML/CSS/JS</dd></div>
+</dl>
+<p class="desc">Lock In is a productivity app for a younger audience, built around one idea: starting is the hard part, so make it a decision you can feel. I designed the original flow in Figma, then rebuilt it here as a working prototype. Press and hold, scroll, or just poke around.</p>
+
+<section class="story">
+  <div class="chaps">
+    <article class="chap" data-go="lock"><span class="num">01</span><h2>Hold to lock in</h2><p>The first screen is a single gesture. Press and hold the button and the padlock closes. It&rsquo;s a small ritual that turns &ldquo;I should start&rdquo; into &ldquo;I&rsquo;m starting.&rdquo;</p></article>
+    <article class="chap" data-go="timer"><span class="num">02</span><h2>Locked in</h2><p>The timer counts up with a sweeping ring, and once you&rsquo;re locked in the whole interface goes black. The other tabs lock too, so leaving takes a deliberate pause.</p></article>
+    <article class="chap" data-go="tasks"><span class="num">03</span><h2>Tasks</h2><p>A week strip, a reminder card and a checklist. Check things off, add your own, or tap the arrow on a task to focus on it and jump to the timer.</p></article>
+    <article class="chap" data-go="cal"><span class="num">04</span><h2>Calendar</h2><p>Progress is calculated from the same tasks, so checking something off moves the bar. Tap any day to see how it&rsquo;s going.</p></article>
+    <article class="chap" data-go="note"><span class="num">05</span><h2>Notes</h2><p>Quick notes in a typewriter style, with a custom keyboard so the screen stays one calm thing. Click the keys or type.</p></article>
+  </div>
+  <div class="stage">
+    <div class="phone" id="phone">
+      <div class="screen">
+        <div class="app" id="app" data-v="lock">
+          <div class="views">
+
+            <section class="v" data-v="lock">
+              <p class="ttl">LOCKIN</p>
+              <svg class="pad" id="pad" viewBox="0 0 100 120" aria-hidden="true">
+                <g class="shackle"><path d="M30 56V38a20 20 0 0 1 40 0v18" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="round"/></g>
+                <rect x="10" y="52" width="80" height="64" rx="12" fill="currentColor"/>
+                <circle cx="50" cy="78" r="8" fill="var(--bg)"/><rect x="46.5" y="80" width="7" height="18" rx="3.5" fill="var(--bg)"/>
+              </svg>
+              <p class="cap">READY WHEN YOU ARE.</p>
+              <button class="hold" id="hold" type="button" aria-label="Press and hold to lock in">
+                <svg viewBox="0 0 160 160" aria-hidden="true"><circle cx="80" cy="80" r="74" class="rt"/><circle cx="80" cy="80" r="74" class="rp" id="hring"/></svg>
+                <span id="holdtxt">HOLD</span>
+              </button>
+              <p class="mini">LOCKED IN TODAY <b id="today">00:00:00</b></p>
+            </section>
+
+            <section class="v" data-v="timer">
+              <p class="ttl">LOCKIN TIMER</p>
+              <div class="ringw">
+                <svg viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="130" class="tr"/><circle cx="150" cy="150" r="130" class="pr" id="pr"/></svg>
+                <div class="dig"><span id="dg">00:00:00.0</span><small id="dgs">00</small></div>
+                <p class="goal">SESSION 01</p>
+              </div>
+              <div class="chip" id="chip"><span class="now">NOW</span><span class="tx" id="chiptx">Meet with advisor</span><button type="button" id="chipok" aria-label="Mark task done">&#10003;</button></div>
+              <button class="big" id="main" type="button">START</button>
+              <button class="pill" id="totasks" type="button">TASKS</button>
+              <button class="lnk" id="reset" type="button">RESET</button>
+            </section>
+
+            <section class="v" data-v="tasks">
+              <p class="ttl">TASKS</p>
+              <div class="daystrip" id="daystrip"></div>
+              <div class="rem" id="rem"></div>
+              <ul class="list" id="list"></ul>
+            </section>
+
+            <section class="v" data-v="cal">
+              <p class="ttl">TASK CALENDAR</p>
+              <p class="mon">JANUARY</p>
+              <div class="grid" id="cgrid"></div>
+              <div class="prog"><i id="pfill"></i><span id="ptx">PROGRESS 0%</span></div>
+              <div class="done"><b id="dn">0/0 TASKS COMPLETED !</b><p>YET TO BE COMPLETED:</p><ul id="yet"></ul></div>
+            </section>
+
+            <section class="v" data-v="notes">
+              <p class="ttl">NOTES</p>
+              <div class="nl" id="nl"></div>
+              <div class="nd" id="nd">
+                <button class="bk" id="nback" type="button" aria-label="Back">&larr;</button>
+                <p class="ttl">NOTES</p>
+                <div class="nh"><span class="tile" id="ntile">18</span><div><p id="ndate">JANUARY 18</p><p id="ntitle">UX/UI PROJECT</p></div></div>
+                <h3 id="nhead"></h3>
+                <p class="nb"><span id="nbody"></span><i class="caret"></i></p>
+                <div class="kb" id="kb"></div>
+              </div>
+            </section>
+
+          </div>
+          <nav class="tabs" id="tabs" aria-label="App">
+            <button type="button" data-t="lock" aria-label="Lock"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></button>
+            <button type="button" data-t="timer" aria-label="Timer"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></button>
+            <button type="button" data-t="tasks" aria-label="Tasks"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></svg></button>
+            <button type="button" data-t="cal" aria-label="Calendar"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></button>
+            <button type="button" data-t="notes" aria-label="Notes"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m9 15 1-3 5-5 2 2-5 5z"/></svg></button>
+          </nav>
+          <div class="toast" id="toast">LOCKED IN. PAUSE TO LEAVE.</div>
+          <div class="splash" id="splash">
+            <svg class="spad" viewBox="0 0 100 120" aria-hidden="true"><g class="shackle"><path d="M30 56V38a20 20 0 0 1 40 0v18" fill="none" stroke="#0b0b0b" stroke-width="11" stroke-linecap="round"/></g><rect x="10" y="52" width="80" height="64" rx="12" fill="#0b0b0b"/><circle cx="50" cy="78" r="8" fill="#f6f6f6"/><rect x="46.5" y="80" width="7" height="18" rx="3.5" fill="#f6f6f6"/></svg>
+            <div class="orb"><span>LOCKIN</span></div>
+          </div>
+        </div>
+      </div>
+      <img class="frame" src="assets/lockin/phone.png" alt="" draggable="false">
+    </div>
+    <button class="replay" id="replay" type="button">Replay intro &#8635;</button>
+  </div>
+</section>
+
+<section class="blk">
+  <h2 class="h2s" data-split>From wireframe</h2>
+  <p class="note">The original Figma flow, screen by screen. The remake keeps the layout and the monospace voice, then adds the lock gesture, focus mode and live data connecting every screen.</p>
+  <div class="orig">
+    <figure class="rv"><div class="im"><img src="assets/lockin/original-lock.jpg" alt="Original lock screen"></div><figcaption>Lock</figcaption></figure>
+    <figure class="rv"><div class="im"><img src="assets/lockin/original-timer.jpg" alt="Original timer"></div><figcaption>Timer</figcaption></figure>
+    <figure class="rv"><div class="im"><img src="assets/lockin/original-tasks.jpg" alt="Original tasks"></div><figcaption>Tasks</figcaption></figure>
+    <figure class="rv"><div class="im"><img src="assets/lockin/original-cal.jpg" alt="Original calendar"></div><figcaption>Calendar</figcaption></figure>
+    <figure class="rv"><div class="im"><img src="assets/lockin/original-notes.jpg" alt="Original notes"></div><figcaption>Notes</figcaption></figure>
+  </div>
+</section>
+
+<section class="blk">
+  <h2 class="h2s" data-split>System</h2>
+  <div class="sys">
+    <div class="type"><p class="aa">Aa</p><p>Space Mono for the interface voice. Helvetica Neue for numbers.</p></div>
+    <div class="sw2">
+      <button style="--c:#0b0b0b;--t:#fff" data-hex="#0b0b0b"><b>Ink</b><span>#0b0b0b</span></button>
+      <button style="--c:#f6f6f6;--t:#0b0b0b" data-hex="#f6f6f6"><b>Paper</b><span>#f6f6f6</span></button>
+      <button style="--c:#e7edef;--t:#0b0b0b" data-hex="#e7edef"><b>Mist</b><span>#e7edef</span></button>
+      <button style="--c:#d7f2fd;--t:#0b0b0b" data-hex="#d7f2fd"><b>Sky</b><span>#d7f2fd</span></button>
+    </div>
+  </div>
+</section>
+
+<a class="back" href="work.html">&larr; Back to work</a>
+</main>
+<footer class="foot">Designed and built by Mariam Hegab.</footer>
+<script src="fx.js"></script><script src="lockin.js"></script>
+</body></html>
