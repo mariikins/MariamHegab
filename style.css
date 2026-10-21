@@ -85,7 +85,7 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
 
 /* shared: blurb + services stack as a simple centered column inside .copy */
 @media (max-width:900px) and (orientation:portrait), (max-height:560px) and (orientation:landscape){
-  .copy{display:block;position:fixed;z-index:2;overflow-y:auto;pointer-events:none;overscroll-behavior:contain}
+  .copy{display:block;position:fixed;z-index:2;overflow-y:auto;overflow-x:hidden;pointer-events:none;overscroll-behavior:contain}
   .entered .copy{pointer-events:auto}
   .blurb,.svc.intro{position:static;left:auto;top:auto;width:auto;transform:translateY(12px)}
   .entered .blurb,.entered .svc.intro{transform:none}
@@ -128,13 +128,16 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
   .blurb{font-size:1.15rem}
 }
 
-/* explore button */
+/* explore link: bold type that pixelates and disperses on hover */
 .cta{position:fixed;left:50%;top:calc(46vh + 8rem);transform:translate(-50%,12px);z-index:2;opacity:0;pointer-events:none;transition:opacity 1s ease,transform 1s ease}
 .entered .cta{opacity:1;pointer-events:auto;transform:translate(-50%,0);transition-delay:1.2s}
-.explore{position:relative;display:inline-block;isolation:isolate;overflow:hidden;padding:1.1rem 2.8rem;border:2px solid #000;background:#fff;font-weight:700;font-size:1.15rem;letter-spacing:-.01em;line-height:1;white-space:nowrap}
-.explore canvas{position:absolute;left:0;top:0;width:100%;height:100%;z-index:-1}
-.explore span{position:relative;color:#fff;mix-blend-mode:difference}
+.explore{position:relative;display:inline-block;padding:1.1rem 1.6rem;border:0;background:none;font-weight:700;font-size:clamp(1.7rem,3.6vw,3.4rem);letter-spacing:0;line-height:1;white-space:nowrap}
+.explore canvas{position:absolute;left:-80px;top:-80px;width:calc(100% + 160px);height:calc(100% + 160px);pointer-events:none;opacity:0;z-index:2}
+.explore span{position:relative;text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.16em}
+.explore.on canvas{opacity:1}
+.explore.on span{color:transparent;text-decoration-color:transparent}
 .explore:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
+.explore:hover span{text-decoration-thickness:.1em}
 @media (max-width:900px) and (orientation:portrait), (max-height:560px) and (orientation:landscape){
   .cta{position:static;left:auto;top:auto;transform:translateY(12px);margin:1.8rem auto 0;text-align:center}
   .entered .cta{transform:none}
