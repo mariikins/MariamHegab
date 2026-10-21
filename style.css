@@ -1,4 +1,6 @@
 :root{
+  --dlw:min(52vw,64vh);--dlh:calc(var(--dlw) * .3353);--bf:clamp(1rem,1.55vw,1.4rem);--cf:clamp(1.3rem,2.5vw,2.3rem);--gp:clamp(1.8rem,5vh,3.2rem);
+  --gh:calc(var(--dlh) + var(--gp) * 2 + var(--bf) * 2.5 + var(--cf) + 1.8rem);--gt:calc(50vh - var(--gh) / 2);
   --pink:#e8399c;
   --ink:#000;
   --ease:cubic-bezier(.65,0,.25,1);
@@ -32,14 +34,14 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
 @keyframes scroll{to{transform:translateY(-50%)}}
 
 .blurb{
-  position:fixed;left:50%;top:46vh;width:min(46rem,86vw);text-align:center;z-index:2;
-  font-size:clamp(1.15rem,2vw,1.75rem);line-height:1.25;font-weight:500;
+  position:fixed;left:50%;top:calc(var(--gt) + var(--dlh) + var(--gp));width:min(calc(var(--bf) * 34),86vw);text-align:center;text-wrap:balance;z-index:2;
+  font-size:var(--bf);line-height:1.25;font-weight:500;
   opacity:0;transform:translate(-50%,12px);pointer-events:none;
   transition:opacity 1s ease,transform 1s ease;
 }
 
 /* entered state */
-.entered .logo{left:calc(50vw - min(56vw,80vh) / 2);top:9vh;width:min(56vw,80vh)}
+.entered .logo{left:calc(50vw - var(--dlw) / 2);top:var(--gt);width:var(--dlw)}
 .entered .strip{transform:translateX(100%)}
 .entered .blurb{opacity:1;transform:translate(-50%,0);transition-delay:.9s}
 
@@ -89,7 +91,7 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
   .entered .copy{pointer-events:auto}
   .blurb,.svc.intro{position:static;left:auto;top:auto;width:auto;transform:translateY(12px)}
   .entered .blurb,.entered .svc.intro{transform:none}
-  .blurb{font-size:clamp(1.05rem,4.4vw,1.55rem);margin:0 auto;max-width:34rem}
+  .blurb{font-size:clamp(1rem,4vw,1.4rem);margin:0 auto;max-width:34rem}
   .svc.intro{margin:1.6rem auto 0;max-width:34rem;text-align:center}
   .svc-tag{margin-bottom:1rem}
   .svc.intro ol{grid-template-columns:1fr;justify-content:stretch;column-gap:0;gap:1rem}
@@ -111,7 +113,7 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
   .entered .strip{transform:translateY(100%)}
   .copy{left:0;right:0;bottom:0;top:calc(var(--top2) + var(--lw2) * .3353 + 1.4rem);padding:0 1.25rem 1.5rem}
 }
-@media (max-width:900px) and (orientation:portrait) and (min-width:600px){.blurb{font-size:1.5rem}}
+@media (max-width:900px) and (orientation:portrait) and (min-width:600px){.blurb{font-size:1.3rem}}
 @media (max-width:900px) and (orientation:portrait) and (max-height:700px){
   .blurb{font-size:1rem}
   .svc.intro{margin-top:1rem}
@@ -129,15 +131,14 @@ a:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
 }
 
 /* explore link: bold type that pixelates and disperses on hover */
-.cta{position:fixed;left:50%;top:calc(46vh + 8rem);transform:translate(-50%,12px);z-index:2;opacity:0;pointer-events:none;transition:opacity 1s ease,transform 1s ease}
+.cta{position:fixed;left:50%;top:calc(var(--gt) + var(--dlh) + var(--gp) * 2 + var(--bf) * 2.5);transform:translate(-50%,12px);z-index:2;opacity:0;pointer-events:none;transition:opacity 1s ease,transform 1s ease}
 .entered .cta{opacity:1;pointer-events:auto;transform:translate(-50%,0);transition-delay:1.2s}
-.explore{position:relative;display:inline-block;padding:1.1rem 1.6rem;border:0;background:none;font-weight:700;font-size:clamp(1.7rem,3.6vw,3.4rem);letter-spacing:0;line-height:1;white-space:nowrap}
+.explore{position:relative;display:inline-block;padding:.9rem 1.4rem;border:0;background:none;font-weight:700;font-size:var(--cf);letter-spacing:0;line-height:1;white-space:nowrap}
 .explore canvas{position:absolute;left:-80px;top:-80px;width:calc(100% + 160px);height:calc(100% + 160px);pointer-events:none;opacity:0;z-index:2}
-.explore span{position:relative;text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.16em}
+.explore span{position:relative}
 .explore.on canvas{opacity:1}
 .explore.on span{color:transparent;text-decoration-color:transparent}
 .explore:focus-visible{outline:2px solid var(--pink);outline-offset:4px}
-.explore:hover span{text-decoration-thickness:.1em}
 @media (max-width:900px) and (orientation:portrait), (max-height:560px) and (orientation:landscape){
   .cta{position:static;left:auto;top:auto;transform:translateY(12px);margin:1.8rem auto 0;text-align:center}
   .entered .cta{transform:none}
