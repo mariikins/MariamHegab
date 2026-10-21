@@ -19,7 +19,7 @@ main a:hover{color:var(--pink)}
 .lead{max-width:64rem;font-size:clamp(2rem,5.5vw,5.5rem);line-height:1;letter-spacing:-.045em}
 .more{display:inline-block;margin-top:3rem;font-size:1.2rem}
 
-.mail{display:inline-block;font-size:clamp(2rem,8vw,8rem);letter-spacing:-.05em;line-height:1}
+.mail{display:inline-block;max-width:100%;font-size:clamp(1.3rem,5.6vw,6.5rem);letter-spacing:-.05em;line-height:1}
 .links{list-style:none;display:flex;gap:2.5rem;margin-top:3rem;font-size:1.2rem}
 
 .sec{font-size:clamp(3rem,11vw,11rem);line-height:.9;letter-spacing:-.05em;margin-bottom:4rem}
